@@ -36,6 +36,9 @@ O simulador utiliza as seguintes classes Java para representar os componentes do
   4. **Journal**: Representa o diário de operações do sistema de arquivos.
     - Atributos: uma lista de entradas de diário e o caminho do arquivo de diário.
     - Métodos: adicionar entradas ao diário, carregar e salvar o diário em um arquivo.
+  5. **JournalEntry**: Representa uma entrada no diário de operações.
+    - Atributos: Operação a ser realizada, timestamp, diretório atual e diretório pai
+    - Métodos: Criar uma entrada no diário
 ### Journaling
 O journaling é implementado na classe `Journal`. Cada operação no sistema de arquivos (criação de arquivos, modificação de arquivos, criação de diretórios, etc.) será registrada no diário antes de ser aplicada. O diário será persistido em um arquivo de texto, permitindo que as operações sejam recuperadas após uma falha.O diário é composto por entradas (`JournalEntry`), que contêm informações sobre a operação realizada, como o tipo de operação (criação, modificação, remoção) e os parâmetros relevantes (nome, caminho, conteúdo, etc.).
  
