@@ -4,7 +4,7 @@ Este projeto simula um sistema de arquivos básico em Java, com foco na implemen
 ## Para rodar
   
   1. **Entrar no diretório**: Rode `cd so_fs`
-  2. **Compilar o projeto**: Rode `javac -d bin -source 1.8 -target 1.8 -sourcepath src src/filesystem/*.java` em `so_fs`
+  2. **Compilar o projeto**: Rode `javac -d bin -source 8 -target 8 -sourcepath src src/filesystem/*.java` em `so_fs`
   3. **Rodar o projeto**: Rode `java -cp bin filesystem.FileSystemSimulator` em `so_fs`
 
 
