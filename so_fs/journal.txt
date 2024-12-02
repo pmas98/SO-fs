@@ -1,0 +1,11 @@
+[1733108611513] CREATE_DIR: /teste -> null
+[1733108611513] CREATE_FILE: /teste.js -> null
+[1733108611513] DELETE_FILE: /teste.js -> null
+[1733108611513] CHANGE_DIR: / -> /teste
+[1733108611513] CREATE_FILE: /testetestearquivo.txt -> null
+[1733108611513] CHANGE_DIR: /teste -> /
+[1733108611513] COPY_FILE: /teste -> /teste2
+[1733108611513] CHANGE_DIR: / -> /teste2
+[1733108617989] CREATE_DIR: /testando -> null
+[1733108620181] CHANGE_DIR: / -> /testando
+[1733108623653] CHANGE_DIR: /testando -> /
