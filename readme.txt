@@ -1,5 +1,12 @@
 # Simulador de Sistema de Arquivos com Journaling
 Este projeto simula um sistema de arquivos básico em Java, com foco na implementação do conceito de journaling, uma técnica utilizada para garantir a integridade do sistema em caso de falhas inesperadas. O simulador inclui a gestão de arquivos e diretórios, além do registro de operações em um diário (journal) para recuperação após falhas.
+
+## Para rodar
+
+  1. **Compilar o projeto**: Rode `javac -d bin -source 1.8 -target 1.8 -sourcepath src src/filesystem/*.java` em `so_fs`
+  2. **Rodar o projeto**: Rode `java -cp bin filesystem.FileSystemSimulator` em `so_fs`
+
+
 ## Metodologia
 O simulador será desenvolvido utilizando a linguagem de programação Java. O programa implementará métodos que simulam as operações de um sistema de arquivos, tais como a criação de arquivos, a criação e manipulação de diretórios, e o registro dessas operações em um arquivo de diário.O objetivo do simulador é fornecer uma visão prática de como um sistema de arquivos pode ser estruturado e como o journaling contribui para a integridade e recuperação de dados em caso de falha.
  
@@ -43,14 +50,15 @@ As classes `File` e `Directory` representam os arquivos e diretórios no sistema
 A classe `Journal` gerencia o diário de operações, que é carregado ao iniciar o simulador e salvo a cada nova entrada. As entradas são salvas em um arquivo de texto para garantir que todas as operações sejam persistidas.
  
 ## Resultados
-O simulador de sistema de arquivos apresentou um desempenho esperado nas operações básicas de manipulação de arquivos e diretórios. As ações realizadas, como criar diretórios, criar e remover arquivos, renomear, mover e copiar, foram bem-sucedidas, seguindo a lógica de funcionamento de um sistema de arquivos real. Abaixo estão os resultados das operações realizadas:
-  1. **Criação de Diretório**: O comando `mkdir teste` criou o diretório com sucesso.
-  2. **Criação de Arquivo**: O comando `touch teste.js` criou um arquivo dentro do diretório raiz. A remoção do arquivo com `rm teste.js` foi bem-sucedida.
-  3. **Navegação entre Diretórios**: O comando `cd teste` entrou no diretório criado, e o comando `ls` listou corretamente o conteúdo do diretório.
-  4. **Criação e Listagem de Arquivo no Novo Diretório**: Dentro do diretório `teste`, o comando `touch testearquivo.txt` criou o arquivo com sucesso, e o comando `ls` listou o arquivo corretamente.
-  5. **Navegação para Diretório Anterior**: O comando `cd ..` retornou ao diretório raiz, permitindo nova navegação.
-  6. **Cópia de Diretório**: O comando `cp teste teste2` copiou o diretório `teste` para um novo diretório `teste2`, e a listagem do diretório `teste2` mostrou o arquivo copiado com sucesso.
+O simulador de sistema de arquivos apresentou um desempenho esperado nas operações básicas de manipulação de arquivos e diretórios. As ações realizadas, como criar diretórios, criar e remover arquivos, renomear, mover e copiar, foram bem-sucedidas, seguindo a lógica de funcionamento de um sistema de arquivos real. Abaixo estão as operações realizadas:
+  1. **Criação de Diretório**: O comando `mkdir [nome]` é capaz de criar diretórios.
+  2. **Criação de Arquivo**: O comando `touch [nome]` criou um arquivo dentro do diretório atual. 
+  3. **Deleção de Arquivos e Diretórios**:Para a remoção de arquivos e diretórios, basta usar `rm [nome]`.
+  4. **Navegação entre Diretórios**: O comando `cd [nome]` é capaz de entrar em diretórios criados
+  5. **Listar arquivos de diretório**: O comando `ls` lista corretamente o conteúdo do diretório.
+  6. **Cópia de Diretório e Arquivos**: O comando `cp [nome] [nome2]` copia tanto diretórios como arquivos, usando uma abordagem recursiva.
+  7. **Renomear Diretórios e Arquivos**: Para renomear diretórios foi criado o comando `mv [nome] [nome2]`
 ### Implementação de Journaling
-Embora a simulação mostre um bom comportamento nas operações, o componente de **journaling** (registro de ações para recuperação em caso de falha) não foi explicitamente testado nos resultados fornecidos. A implementação de um diário, se aplicada corretamente, garantiria que cada operação (como criação, remoção, cópia, etc.) fosse registrada, o que possibilitaria a recuperação do estado anterior do sistema de arquivos após falhas, tornando o sistema mais robusto e confiável.
+O componente de journaling funciona através de um arquivo, que é lido no começo ou criado, caso não exista. As operações são registradas da seguinte forma `[timestamp] FUNÇÃO: DIRETÓRIO PAI -> DIRETÓRIO ATUAL`
 ### Conclusão
-Este simulador demonstrou com êxito as funcionalidades de um sistema de arquivos básico, incluindo criação, remoção e movimentação de arquivos e diretórios. A implementação de journaling contribuiria para aumentar a segurança e a confiabilidade do sistema, registrando as ações realizadas. O projeto fornece uma boa base para entender tanto a estrutura de um sistema de arquivos quanto o conceito de journaling, que pode ser estendido para sistemas reais para garantir a recuperação de dados em caso de falhas inesperadas.
+Este simulador demonstrou com êxito as funcionalidades de um sistema de arquivos básico, incluindo criação, remoção e movimentação de arquivos e diretórios. A implementação de journaling contribui para aumentar a segurança e do sistema, registrando as ações realizadas.
