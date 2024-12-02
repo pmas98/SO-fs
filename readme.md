@@ -2,9 +2,10 @@
 Este projeto simula um sistema de arquivos básico em Java, com foco na implementação do conceito de journaling, uma técnica utilizada para garantir a integridade do sistema em caso de falhas inesperadas. O simulador inclui a gestão de arquivos e diretórios, além do registro de operações em um diário (journal) para recuperação após falhas.
 
 ## Para rodar
-
-  1. **Compilar o projeto**: Rode `javac -d bin -source 1.8 -target 1.8 -sourcepath src src/filesystem/*.java` em `so_fs`
-  2. **Rodar o projeto**: Rode `java -cp bin filesystem.FileSystemSimulator` em `so_fs`
+  
+  1. **Entrar no diretório**: Rode `cd so_fs`
+  2. **Compilar o projeto**: Rode `javac -d bin -source 1.8 -target 1.8 -sourcepath src src/filesystem/*.java` em `so_fs`
+  3. **Rodar o projeto**: Rode `java -cp bin filesystem.FileSystemSimulator` em `so_fs`
 
 
 ## Metodologia
